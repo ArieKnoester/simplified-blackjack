@@ -36,14 +36,13 @@ def player_turn(player, dealers_first_card):
             player_takes_card = False
 
 
-# def dealer_turn(participants):
-#     while (
-#             participants["dealer"]["score"] < 17
-#             or
-#             participants["dealer"]["score"] < participants["player"]["score"]
-#     ):
-#         participants["dealer"]["cards"].append(draw_card())
-#         set_score(participants, participant="dealer")
+def dealer_turn(player, dealer):
+    while (
+            dealer.score < 17
+            or
+            dealer.score < player.score
+    ):
+        dealer.draw_card()
 
 
 def display_winner(player, dealer):
@@ -76,7 +75,6 @@ def play_blackjack():
     # If no blackjack, player takes their turn
     player_turn(player, dealers_first_card=dealer.cards[0])
 
-    # Check if the player went over 21.
     # If player busts immediately display the winner.
     if player.bust:
         display_final_turn(player, dealer)
@@ -84,8 +82,7 @@ def play_blackjack():
         return
 
     # If player didn't bust, dealer takes its turn.
-    # dealer_turn(participants)
-    # print(participants)
+    dealer_turn(player, dealer)
 
     # Check if dealer busted.
     # check_for_bust(participants, participant="dealer")
