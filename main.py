@@ -11,7 +11,7 @@ def clear_screen():
         _ = os.system('cls')
 
 
-def display_turn(player, dealers_first_card):
+def display_player_turn(player, dealers_first_card):
     print(f"\tYour cards: {player.cards}, current score {player.score}")
     print(f"\tDealer's first card: {dealers_first_card}")
 
@@ -41,7 +41,7 @@ def display_winner(player, dealer):
 def player_turn(player, dealers_first_card):
     player_takes_card = True
     while player_takes_card:
-        display_turn(player, dealers_first_card)
+        display_player_turn(player, dealers_first_card)
         takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
         if takes_card == 'y':
             player.draw_card()
