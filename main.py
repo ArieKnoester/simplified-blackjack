@@ -2,6 +2,7 @@
 # import random
 import os
 from art import logo
+from player import Player
 
 
 def clear_screen():
@@ -120,7 +121,8 @@ def play_blackjack():
     #         "busted": False
     #     }
     # }
-
+    player = Player()
+    print(player.cards)
     print(logo)
     return
     # Get the first round of cards.
