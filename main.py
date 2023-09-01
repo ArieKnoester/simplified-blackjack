@@ -23,21 +23,17 @@ def display_final_turn(player, dealer):
         print(f"\tDealer's final hand: {dealer.cards}, final score: {dealer.score}")
 
 
-# def player_turn(participants):
-#     player_takes_card = True
-#     while player_takes_card:
-#         display_turn(participants)
-#         takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
-#         if takes_card == 'y':
-#             participants["player"]["cards"].append(draw_card())
-#             set_score(participants, participant="player")
-#             if participants["player"]["score"] > 21 and 11 in participants["player"]["cards"]:
-#                 replace_ace_with_one(participants, participant="player")
-#                 set_score(participants, participant="player")
-#             elif participants["player"]["score"] > 21:
-#                 player_takes_card = False
-#         elif takes_card != 'y':
-#             player_takes_card = False
+def player_turn(player, dealers_first_card):
+    player_takes_card = True
+    while player_takes_card:
+        display_turn(player, dealers_first_card)
+        takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
+        if takes_card == 'y':
+            player.draw_card()
+            if player.bust:
+                player_takes_card = False
+        elif takes_card != 'y':
+            player_takes_card = False
 
 
 # def dealer_turn(participants):
@@ -78,7 +74,7 @@ def play_blackjack():
         return
 
     # If no blackjack, player takes their turn
-    # player_turn(participants)
+    player_turn(player, dealers_first_card=dealer.cards[0])
     return
 
     # Check if the player went over 21.
