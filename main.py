@@ -24,25 +24,6 @@ def clear_screen():
 #             final score: {participants['dealer']['score']}")
 
 
-# def check_for_blackjack(participants):
-#     has_blackjack = False
-#     for participant in participants.values():
-#         if participant["score"] == 21:
-#             participant["blackjack"] = True
-#             has_blackjack = True
-#     return has_blackjack
-
-
-# def replace_ace_with_one(participants, participant):
-#     position = participants[participant]["cards"].index(11)
-#     participants[participant]["cards"][position] = 1
-
-
-# def check_for_bust(participants, participant):
-#     if participants[participant]["score"] > 21:
-#         participants[participant]["busted"] = True
-
-
 # def player_turn(participants):
 #     player_takes_card = True
 #     while player_takes_card:
@@ -93,21 +74,7 @@ def clear_screen():
 
 
 def play_blackjack():
-    # (Re)initialize Dictionary.
-    # participants = {
-    #     "player": {
-    #         "cards": [],
-    #         "score": 0,
-    #         "blackjack": False,
-    #         "busted": False
-    #     },
-    #     "dealer": {
-    #         "cards": [],
-    #         "score": 0,
-    #         "blackjack": False,
-    #         "busted": False
-    #     }
-    # }
+
     player = Player()
     print(player.cards)
     print(player.score)
@@ -115,28 +82,6 @@ def play_blackjack():
     print(player.bust)
     print(logo)
     return
-    # Get the first round of cards.
-    # for i in range(2):
-    #     participants["player"]["cards"].append(draw_card())
-    #     participants["dealer"]["cards"].append(draw_card())
-    # print(participants)
-
-    # set card value totals for player and dealer
-    # set_score(participants, participant="all")
-    # print(participants)
-
-    # Bug Fix: Quick fix in case 2 aces were drawn by the player
-    # or dealer on the first turn. This really should be fixed in the
-    # set_score function instead.
-    # if participants["player"]["score"] > 21 and 11 in participants["player"]["cards"]:
-    #     replace_ace_with_one(participants, participant="player")
-    #     set_score(participants, participant="player")
-    # elif participants["player"]["score"] > 21 and 11 in participants["dealer"]["cards"]:
-    #     replace_ace_with_one(participants, participant="dealer")
-    #     set_score(participants, participant="dealer")
-
-    # Check for a blackjack
-    # blackjack = check_for_blackjack(participants)
 
     # if there is a blackjack immediately show who won.
     # if blackjack:
