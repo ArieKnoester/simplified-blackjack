@@ -84,13 +84,9 @@ def play_blackjack():
     # If player didn't bust, dealer takes its turn.
     dealer_turn(player, dealer)
 
-    # Check if dealer busted.
-    # check_for_bust(participants, participant="dealer")
-    # print(participants)
-
     # Evaluate game and display the winner.
-    # display_final_turn(participants, player_busted)
-    # display_winner(participants)
+    display_final_turn(player, dealer)
+    display_winner(player, dealer)
 
 
 # Main game loop.
