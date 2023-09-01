@@ -11,11 +11,11 @@ class Player:
         self.bust = False
         for i in range(2):
             self.draw_card()
-        self.set_score()
         self.check_for_blackjack()
 
     def draw_card(self):
         self.cards.append(random.choice(CARDS))
+        self.set_score()
 
     def set_score(self):
         self.score = sum(self.cards)
