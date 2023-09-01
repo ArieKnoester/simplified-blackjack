@@ -54,8 +54,7 @@ def player_turn(player, dealers_first_card):
 def dealer_turn(dealer, player_score):
     while (
             dealer.score < 17
-            or
-            dealer.score < player_score
+            or dealer.score < player_score
     ):
         dealer.draw_card()
 
