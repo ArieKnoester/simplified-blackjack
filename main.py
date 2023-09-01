@@ -11,19 +11,6 @@ def clear_screen():
     else:
         _ = os.system('cls')
 
-
-# def draw_card():
-#     return random.choice(cards)
-
-
-# def set_score(participants, participant):
-#     if participant == "all":
-#         participants["player"]["score"] = sum(participants["player"]["cards"])
-#         participants["dealer"]["score"] = sum(participants["dealer"]["cards"])
-#     else:
-#         participants[participant]["score"] = sum(participants[participant]["cards"])
-
-
 # def display_turn(participants):
 #     print(f"\tYour cards: {participants['player']['cards']}, current score {participants['player']['score']}")
 #     print(f"\tDealer's first card: {participants['dealer']['cards'][0]}")
@@ -123,6 +110,7 @@ def play_blackjack():
     # }
     player = Player()
     print(player.cards)
+    print(player.score)
     print(logo)
     return
     # Get the first round of cards.

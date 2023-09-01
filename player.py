@@ -11,6 +11,10 @@ class Player:
         self.busted = False
         for i in range(2):
             self.draw_card()
+        self.set_score()
 
     def draw_card(self):
         self.cards.append(random.choice(CARDS))
+
+    def set_score(self):
+        self.score = sum(self.cards)
