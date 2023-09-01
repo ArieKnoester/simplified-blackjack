@@ -1,5 +1,4 @@
 
-# import random
 import os
 from art import logo
 from player import Player
