@@ -11,17 +11,16 @@ def clear_screen():
     else:
         _ = os.system('cls')
 
-# def display_turn(participants):
-#     print(f"\tYour cards: {participants['player']['cards']}, current score {participants['player']['score']}")
-#     print(f"\tDealer's first card: {participants['dealer']['cards'][0]}")
+
+def display_turn(player, dealers_first_card):
+    print(f"\tYour cards: {player.cards}, current score {player.score}")
+    print(f"\tDealer's first card: {dealers_first_card}")
 
 
-# def display_final_turn(participants, player_busted):
-#     print(f"\tYour final hand: {participants['player']['cards']}, final score: {participants['player']['score']}")
-#     if not player_busted:
-#         print(
-#             f"\tDealer's final hand: {participants['dealer']['cards']},
-#             final score: {participants['dealer']['score']}")
+def display_final_turn(player, dealer):
+    print(f"\tYour final hand: {player.cards}, final score: {player.score}")
+    if not player.bust:
+        print(f"\tDealer's final hand: {dealer.cards}, final score: {dealer.score}")
 
 
 # def player_turn(participants):
@@ -51,46 +50,36 @@ def clear_screen():
 #         set_score(participants, participant="dealer")
 
 
-# def display_winner(participants):
-#     player_blackjack = participants["player"]["blackjack"]
-#     dealer_blackjack = participants["dealer"]["blackjack"]
-#     player_score = participants["player"]["score"]
-#     dealer_score = participants["dealer"]["score"]
-#     player_busted = participants["player"]["busted"]
-#     dealer_busted = participants["dealer"]["busted"]
-#
-#     if player_blackjack and not dealer_blackjack:
-#         print("You win with Blackjack 😎")
-#     elif dealer_blackjack and not player_blackjack:
-#         print("Dealer wins with Blackjack 😎")
-#     elif player_score == dealer_score:
-#         print("Draw 🙃")
-#     elif player_busted:
-#         print("You went over. You lose 😭")
-#     elif dealer_busted:
-#         print("Dealer went over. You win 😁")
-#     elif dealer_score > player_score:
-#         print("You lose 😤")
+def display_winner(player, dealer):
+    if player.blackjack and not dealer.blackjack:
+        print("You win with Blackjack 😎\n")
+    elif dealer.blackjack and not player.blackjack:
+        print("Dealer wins with Blackjack 😎\n")
+    elif player.score == dealer.score:
+        print("Draw 🙃\n")
+    elif player.bust:
+        print("You went over. You lose 😭\n")
+    elif dealer.bust:
+        print("Dealer went over. You win 😁\n")
+    elif dealer.score > player.score:
+        print("You lose 😤\n")
 
 
 def play_blackjack():
 
     player = Player()
-    print(player.cards)
-    print(player.score)
-    print(player.blackjack)
-    print(player.bust)
+    dealer = Player()
     print(logo)
-    return
 
     # if there is a blackjack immediately show who won.
-    # if blackjack:
-    #     display_final_turn(participants, player_busted=False)
-    #     display_winner(participants)
-    #     return
+    if player.blackjack or dealer.blackjack:
+        display_final_turn(player, dealer)
+        display_winner(player, dealer)
+        return
 
     # If no blackjack, player takes their turn
     # player_turn(participants)
+    return
 
     # Check if the player went over 21.
     # If player busts immediately display the winner.
