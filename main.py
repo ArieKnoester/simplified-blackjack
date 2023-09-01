@@ -35,11 +35,11 @@ def player_turn(player, dealers_first_card):
             player_takes_card = False
 
 
-def dealer_turn(player, dealer):
+def dealer_turn(dealer, player_score):
     while (
             dealer.score < 17
             or
-            dealer.score < player.score
+            dealer.score < player_score
     ):
         dealer.draw_card()
 
@@ -81,7 +81,7 @@ def play_blackjack():
         return
 
     # If player didn't bust, dealer takes its turn.
-    dealer_turn(player, dealer)
+    dealer_turn(dealer, player_score=player.score)
 
     # Evaluate game and display the winner.
     display_final_turn(player, dealer)
