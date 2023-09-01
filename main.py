@@ -112,6 +112,7 @@ def play_blackjack():
     print(player.cards)
     print(player.score)
     print(player.blackjack)
+    print(player.bust)
     print(logo)
     return
     # Get the first round of cards.
