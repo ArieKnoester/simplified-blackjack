@@ -75,16 +75,13 @@ def play_blackjack():
 
     # If no blackjack, player takes their turn
     player_turn(player, dealers_first_card=dealer.cards[0])
-    return
 
     # Check if the player went over 21.
     # If player busts immediately display the winner.
-    # check_for_bust(participants, participant="player")
-    # player_busted = participants["player"]["busted"]
-    # if player_busted:
-    #     display_final_turn(participants, player_busted=True)
-    #     display_winner(participants)
-    #     return
+    if player.bust:
+        display_final_turn(player, dealer)
+        display_winner(player, dealer)
+        return
 
     # If player didn't bust, dealer takes its turn.
     # dealer_turn(participants)
