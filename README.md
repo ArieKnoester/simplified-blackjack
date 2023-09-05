@@ -9,7 +9,7 @@ track of the Dealer's and Player's cards. Having completed that
 requirement I refactored this to use 2 dictionaries just see if I 
 could. While I was able to get all functionality working, I was 
 not happy with how the code turned out. I felt it lacked readability, 
-and it wasn't clear how it worked. This is a third attempt in which I 
+and it wasn't clear how it worked (See 'Initial commit'). This is a third attempt in which I 
 wanted to try an OOP approach.
 
 ### Blackjack House Rules as defined by the course
