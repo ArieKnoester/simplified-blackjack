@@ -1,4 +1,3 @@
-
 import os
 from table import Table
 

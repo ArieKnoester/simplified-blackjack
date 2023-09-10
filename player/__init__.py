@@ -4,10 +4,11 @@ CARDS = [11, 2, 3, 4, 5, 6, 7, 8, 9, 10, 10, 10, 10]
 
 class Player:
 
-    def __init__(self):
+    def __init__(self, *, table):
         self.cards = []
         self.score = 0
         self.bust = False
+        self.table = table
         for i in range(2):
             self.draw_card()
 
@@ -29,9 +30,9 @@ class Player:
         """ Checks for blackjack which can only occur with an ace and a 10 card """
         return self.score == 21 and len(self.cards) == 2
 
-    def take_turn(self, *, dealers_first_card):
+    def take_turn(self):
         while True:
-            self.display_turn(dealers_first_card)
+            self.display_turn()
             takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
             if takes_card == 'y':
                 self.draw_card()
@@ -40,6 +41,7 @@ class Player:
             else:
                 break
 
-    def display_turn(self, dealers_first_card):
+    def display_turn(self):
+        dealers_first_card = self.table.dealer.cards[0]
         print(f"\tYour cards: {self.cards}, current score {self.score}")
         print(f"\tDealer's first card: {dealers_first_card}")

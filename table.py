@@ -1,4 +1,3 @@
-
 from player import Player
 from player.dealer import Dealer
 from art import logo
@@ -7,8 +6,8 @@ from art import logo
 class Table:
 
     def __init__(self):
-        self.player = Player()
-        self.dealer = Dealer()
+        self.player = Player(table=self)
+        self.dealer = Dealer(table=self)
 
     def play_blackjack(self):
 
@@ -20,7 +19,7 @@ class Table:
             return
 
         # If no blackjack, player takes their turn
-        self.player.take_turn(dealers_first_card=self.dealer.cards[0])
+        self.player.take_turn()
 
         # If player busts immediately display the winner.
         if self.player.bust:
@@ -28,7 +27,7 @@ class Table:
             return
 
         # If player didn't bust, dealer takes its turn.
-        self.dealer.take_turn(player_score=self.player.score)
+        self.dealer.take_turn()
 
         # Evaluate game and display the winner.
         self._display_final_turn()
