@@ -7,11 +7,11 @@ class Player:
     def __init__(self):
         self.cards = []
         self.score = 0
-        self.blackjack = False
+        # self.blackjack = False
         self.bust = False
         for i in range(2):
             self.draw_card()
-        self.check_for_blackjack()
+        # self.check_for_blackjack()
 
     def draw_card(self):
         self.cards.append(random.choice(CARDS))
@@ -26,6 +26,12 @@ class Player:
         elif self.score > 21:
             self.bust = True
 
-    def check_for_blackjack(self):
-        if self.score == 21:
-            self.blackjack = True
+    # def check_for_blackjack(self):
+    #     if self.score == 21:
+    #         self.blackjack = True
+
+    @property
+    def blackjack(self):
+        """ Checks for blackjack which can only occur with an ace and a 10 card """
+        # self.blackjack = True
+        return self.score == 21 and len(self.cards) == 2
