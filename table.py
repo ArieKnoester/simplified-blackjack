@@ -13,21 +13,18 @@ class Table:
 
         print(logo)
 
-        # if there is a blackjack immediately show who won.
-        if self.player.blackjack or self.dealer.blackjack:
-            self._display_final_turn()
-            return
+        # Check the table for blackjacks.
+        for current_player in (self.player, self.dealer):
+            if current_player.blackjack:
+                self._display_final_turn()
+                return
 
-        # If no blackjack, player takes their turn
-        self.player.take_turn()
-
-        # If player busts immediately display the winner.
-        if self.player.bust:
-            self._display_final_turn()
-            return
-
-        # If player didn't bust, dealer takes its turn.
-        self.dealer.take_turn()
+        # If no blackjack, players take their turns
+        for current_player in (self.player, self.dealer):
+            current_player.take_turn()
+            if current_player.bust:
+                self._display_final_turn()
+                return
 
         # Evaluate game and display the winner.
         self._display_final_turn()
