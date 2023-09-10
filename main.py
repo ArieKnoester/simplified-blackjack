@@ -2,6 +2,7 @@
 import os
 from art import logo
 from player import Player
+from player.dealer import Dealer
 
 
 def clear_screen():
@@ -9,11 +10,6 @@ def clear_screen():
         _ = os.system('clear')
     else:
         _ = os.system('cls')
-
-
-def display_player_turn(player, dealers_first_card):
-    print(f"\tYour cards: {player.cards}, current score {player.score}")
-    print(f"\tDealer's first card: {dealers_first_card}")
 
 
 def display_final_turn(player, dealer):
@@ -38,31 +34,10 @@ def display_winner(player, dealer):
         print("You lose 😤\n")
 
 
-def player_turn(player, dealers_first_card):
-    player_takes_card = True
-    while player_takes_card:
-        display_player_turn(player, dealers_first_card)
-        takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
-        if takes_card == 'y':
-            player.draw_card()
-            if player.bust:
-                player_takes_card = False
-        elif takes_card != 'y':
-            player_takes_card = False
-
-
-def dealer_turn(dealer, player_score):
-    while (
-            dealer.score < 17
-            or dealer.score < player_score
-    ):
-        dealer.draw_card()
-
-
 def play_blackjack():
 
     player = Player()
-    dealer = Player()
+    dealer = Dealer()
     print(logo)
 
     # if there is a blackjack immediately show who won.
@@ -71,7 +46,7 @@ def play_blackjack():
         return
 
     # If no blackjack, player takes their turn
-    player_turn(player, dealers_first_card=dealer.cards[0])
+    player.take_turn(dealers_first_card=dealer.cards[0])
 
     # If player busts immediately display the winner.
     if player.bust:
@@ -79,7 +54,7 @@ def play_blackjack():
         return
 
     # If player didn't bust, dealer takes its turn.
-    dealer_turn(dealer, player_score=player.score)
+    dealer.take_turn(player_score=player.score)
 
     # Evaluate game and display the winner.
     display_final_turn(player, dealer)

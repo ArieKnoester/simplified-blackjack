@@ -7,11 +7,9 @@ class Player:
     def __init__(self):
         self.cards = []
         self.score = 0
-        # self.blackjack = False
         self.bust = False
         for i in range(2):
             self.draw_card()
-        # self.check_for_blackjack()
 
     def draw_card(self):
         self.cards.append(random.choice(CARDS))
@@ -26,12 +24,22 @@ class Player:
         elif self.score > 21:
             self.bust = True
 
-    # def check_for_blackjack(self):
-    #     if self.score == 21:
-    #         self.blackjack = True
-
     @property
     def blackjack(self):
         """ Checks for blackjack which can only occur with an ace and a 10 card """
-        # self.blackjack = True
         return self.score == 21 and len(self.cards) == 2
+
+    def take_turn(self, *, dealers_first_card):
+        while True:
+            self.display_turn(dealers_first_card)
+            takes_card = input("Type 'y' to get another card, type 'n' to pass: ").lower().strip()
+            if takes_card == 'y':
+                self.draw_card()
+                if self.bust:
+                    break
+            else:
+                break
+
+    def display_turn(self, dealers_first_card):
+        print(f"\tYour cards: {self.cards}, current score {self.score}")
+        print(f"\tDealer's first card: {dealers_first_card}")
