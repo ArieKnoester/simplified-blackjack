@@ -25,4 +25,11 @@ wanted to try an OOP approach.
 - The cards in the list have equal probability of being drawn.
 - Cards are not removed from the deck as they are drawn.
 - The computer is the dealer. 
-- The dealer must draw if the total value of its cards is less than 17.
+- The dealer must draw if the total value of its cards is less 
+than 17.
+
+## Update 09/17/2023
+
+All changes after commit 9cb5837 are the result of a collaborative
+effort with [mfisher87](https://github.com/mfisher87/) and 
+[itsarobin](https://github.com/itsarobin/)
