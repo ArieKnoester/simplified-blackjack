@@ -36,6 +36,9 @@ class Card:
     suit: CardSuit
     rank: CardRank
 
+    def __repr__(self) -> str:
+        return f"<Card {self.rank.value.title()} of {self.suit.value.title()}>"
+
     @property
     def color(self) -> CardColor:
         if self.suit in [CardSuit.HEARTS, CardSuit.DIAMONDS]:
