@@ -6,5 +6,6 @@ def test_deck():
     deck = Deck()
     actual_len = len(deck.cards)
     expected_len = 52
+    breakpoint()
     assert actual_len == expected_len
     assert all([isinstance(card, Card) for card in deck.cards])
