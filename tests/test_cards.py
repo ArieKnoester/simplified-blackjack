@@ -1,7 +1,11 @@
 from card import all_cards
+from card import Card
 
 
+# TODO Add tests: Each suit has 13 cards. Each color has 26 cards.
 def test_all_cards():
-    actual = len(all_cards())
-    expected = 52
-    assert actual == expected
+    cards = all_cards()
+    actual_len = len(cards)
+    expected_len = 52
+    assert actual_len == expected_len
+    assert all([isinstance(card, Card) for card in cards])

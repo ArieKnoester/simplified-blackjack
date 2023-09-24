@@ -10,17 +10,32 @@ class CardSuit(Enum):
     CLUBS = "clubs"
 
 
-class CardValue(Enum):
+class CardRank(Enum):
     ACE = "ace"
     TWO = "two"
     THREE = "three"
+    FOUR = "four"
+    FIVE = "five"
+    SIX = "six"
+    SEVEN = "seven"
+    EIGHT = "eight"
+    NINE = "nine"
+    TEN = "ten"
+    JACK = "jack"
+    QUEEN = "queen"
+    KING = "king"
 
 
 @dataclass
 class Card:
     suit: CardSuit
-    value: CardValue
+    rank: CardRank
 
 
 def all_cards() -> list[Card]:
-    return list(product(CardValue, CardSuit))
+    return list(
+        Card(suit=suit, rank=rank)
+        for rank, suit in product(CardRank, CardSuit)
+    )
+
+# card = Card(suit=CardSuit.CLUBS, rank=CardRank.THREE)
