@@ -49,8 +49,8 @@ class Card:
 
 def all_cards() -> list[Card]:
     return list(
-        Card(suit=suit, rank=rank)
-        for rank, suit in product(CardRank, CardSuit)
+        Card(suit=suit, rank=rank) for rank, suit in product(CardRank, CardSuit)
     )
+
 
 # card = Card(suit=CardSuit.CLUBS, rank=CardRank.THREE)

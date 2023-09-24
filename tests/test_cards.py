@@ -1,5 +1,4 @@
-from card import all_cards
-from card import Card
+from card import Card, all_cards
 
 
 # TODO Add tests: Each suit has 13 cards. Each color has 26 cards.

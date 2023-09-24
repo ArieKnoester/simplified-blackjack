@@ -1,16 +1,14 @@
+from art import logo
 from player import Player
 from player.dealer import Dealer
-from art import logo
 
 
 class Table:
-
     def __init__(self):
         self.player = Player(table=self)
         self.dealer = Dealer(table=self)
 
     def play_blackjack(self):
-
         print(logo)
 
         # Check the table for blackjacks.
@@ -30,9 +28,13 @@ class Table:
         self._display_final_turn()
 
     def _display_final_turn(self):
-        print(f"\tYour final hand: {self.player.cards}, final score: {self.player.score}")
+        print(
+            f"\tYour final hand: {self.player.cards}, final score: {self.player.score}"
+        )
         if not self.player.bust:
-            print(f"\tDealer's final hand: {self.dealer.cards}, final score: {self.dealer.score}")
+            print(
+                f"\tDealer's final hand: {self.dealer.cards}, final score: {self.dealer.score}"
+            )
         self._display_winner()
 
     def _display_winner(self):
