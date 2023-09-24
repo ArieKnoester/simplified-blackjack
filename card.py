@@ -4,10 +4,10 @@ from itertools import product
 
 
 class CardSuit(Enum):
-    SPADES = "spades"
-    HEARTS = "hearts"
-    DIAMONDS = "diamonds"
-    CLUBS = "clubs"
+    SPADES = "♠"
+    HEARTS = "♥"
+    DIAMONDS = "♦"
+    CLUBS = "♣"
 
 
 class CardRank(Enum):
