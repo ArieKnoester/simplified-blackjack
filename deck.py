@@ -1,8 +1,7 @@
+from card import all_cards
 
-class Deck():
+
+class Deck:
 
     def __init__(self):
-        ...
-
-    def new_deck(self):
-        ...
+        self.cards = all_cards()
