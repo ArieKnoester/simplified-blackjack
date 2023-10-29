@@ -19,3 +19,7 @@ class Deck:
 
     def deal_card(self) -> Card:
         return self.cards.pop()
+
+    # TODO: Unit test this.
+    def reset(self):
+        self.__init__()
