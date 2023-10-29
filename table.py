@@ -1,14 +1,24 @@
 from art import logo
 from player import Player
 from player.dealer import Dealer
+from deck import Deck
 
 
 class Table:
     def __init__(self):
         self.player = Player(table=self)
         self.dealer = Dealer(table=self)
+        self.deck = Deck()
 
+    def deal_cards(self, *, player):
+        for _ in range(2):
+            player.take_card(self.deck.deal_card())
+        
     def play_blackjack(self):
+        self.deck.reset()
+        self.deck.shuffle()
+        self.deal_cards(player=self.player)
+        self.deal_cards(player=self.dealer)
         print(logo)
 
         # Check the table for blackjacks.
