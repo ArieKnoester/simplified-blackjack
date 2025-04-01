@@ -1,5 +1,7 @@
 # simplified-blackjack
 
+WORK IN PROGRESS
+
 This program was created as part of a Python course. This version
 of blackjack is considered simplified, because it does not take 
 into account probability and does not use multiple decks. 
